@@ -3,7 +3,13 @@ form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-  const{elements:{email,password}} = event.curentTarget;
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
 
-//   if(email.value)
-// }
+  if (email.value === "" || password.value === "") {
+    return console.log("Please fill in all the filds!");
+  }
+  console.log(`Email: ${email}, Password: ${password}`);
+  event.currentTarget.reset();
+}
