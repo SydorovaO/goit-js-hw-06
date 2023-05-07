@@ -19,16 +19,18 @@ refs.destroyBtnEl.addEventListener("click", destroyBoxes);
 function createBoxes(amount) {
   let boxWidth = 30;
   let boxHeight = 30;
+  const boxes = [];
+
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement("div");
     box.style.width = `${boxWidth}px`;
     box.style.height = `${boxHeight}px`;
     box.style.backgroundColor = getRandomHexColor();
-
-    refs.boxesDivEl.appendChild(box);
+    boxes.push(box);
     boxWidth += 10;
     boxHeight += 10;
   }
+  refs.boxesDivEl.append(...boxes);
 }
 
 function destroyBoxes() {
